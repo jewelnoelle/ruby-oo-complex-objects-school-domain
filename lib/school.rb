@@ -1,24 +1,20 @@
 require 'pry'
 class School
+
+    attr_accessor :roster
+
     def initialize(model)
         @model = model
-    end
-
-    def roster=(roster)
-        @roster = roster
-    end
-
-    def roster
         @roster = {}
     end
 
     def add_student(name, grade)
-        @roster[grade] = []
-        @roster[grade] << name
+        roster[grade] ||= []
+        roster[grade] << name
     end
 
     def grade(grade)
-        school.roster[grade]
+        roster[grade]
     end
 
     def sort
@@ -28,4 +24,3 @@ class School
         @roster
     end
 end
-
